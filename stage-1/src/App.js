@@ -23,7 +23,7 @@ class App extends Component {
     this.setState({
       shoppingCart: [...this.state.shoppingCart, product]
     })
-    console.log(this.state.shoppingCart);
+    console.log(this.state.shoppingCart, product);
   }
 
   removeFromShoppingCart(product) {
@@ -48,7 +48,8 @@ class App extends Component {
           <Route path="/shoppingcart" render={() => {
             return <ShoppingCart
               shoppingCart={this.state.shoppingCart}
-              removeFromShoppingCart={this.removeFromShoppingCart} />
+              removeFromShoppingCart={this.removeFromShoppingCart}
+               />
           }} />
         </Switch>
       </div>

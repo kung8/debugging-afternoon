@@ -15,18 +15,18 @@ class App extends Component {
       shoppingCart: []
     }
 
-    this.addToShoppingCart = this.addToShoppingCart.bind(this);
-    this.removeFromShoppingCart = this.removeFromShoppingCart.bind(this);
+    // this.addToShoppingCart = this.addToShoppingCart.bind(this);
+    // this.removeFromShoppingCart = this.removeFromShoppingCart.bind(this);
   }
 
-  addToShoppingCart(product) {
+  addToShoppingCart=(product)=> {
     this.setState({
       shoppingCart: [...this.state.shoppingCart, product]
-    })
+    });
     console.log(this.state.shoppingCart);
   }
 
-  removeFromShoppingCart(product) {
+  removeFromShoppingCart=(product)=> {
     let newShoppingCart = this.state.shoppingCart;
     newShoppingCart.splice(newShoppingCart.indexOf(product), 1);
     this.setState({
@@ -43,7 +43,9 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/storefront" render={() => {
             return <StoreFront
-              addToShoppingCart={this.addToShoppingCart} />
+              addToShoppingCart={this.addToShoppingCart}
+              shoppingCart={this.state.shoppingCart} 
+              />
           }} />
           <Route path="/shoppingcart" render={() => {
             return <ShoppingCart
